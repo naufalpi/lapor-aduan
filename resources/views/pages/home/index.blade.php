@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Lapor Mbae Guse')
- <x-hero />
+
 @section('content')
 
 <div class="container mx-auto px-4 py-8">
@@ -9,7 +9,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($aduans as $aduan)
-            <x-aduan-card :aduan="$aduan" />
+            <a href="{{ route('aduans.show', $aduan->slug) }}" class="block">
+                <x-aduan-card :aduan="$aduan" />
+            </a>
         @endforeach
     </div>
 
@@ -28,10 +30,10 @@
         if (window.scrollY > 50) {
             isScrolled = true;
             navbar.classList.remove('bg-transparent');
-            navbar.classList.add('bg-white/80', 'dark:bg-gray-900/80', 'shadow');
+            navbar.classList.add('bg-gray-900/80', 'shadow');
         } else {
             isScrolled = false;
-            navbar.classList.remove('bg-white/80', 'dark:bg-gray-900/80', 'shadow');
+            navbar.classList.remove('bg-gray-900/80', 'shadow');
             navbar.classList.add('bg-transparent');
         }
     });
@@ -39,13 +41,13 @@
     navbar.addEventListener('mouseenter', function () {
         if (!isScrolled) {
             navbar.classList.remove('bg-transparent');
-            navbar.classList.add('bg-white/80', 'dark:bg-gray-900/80', 'shadow');
+            navbar.classList.add('bg-gray-900/80', 'shadow');
         }
     });
 
     navbar.addEventListener('mouseleave', function () {
         if (!isScrolled) {
-            navbar.classList.remove('bg-white/80', 'dark:bg-gray-900/80', 'shadow');
+            navbar.classList.remove('bg-gray-900/80', 'shadow');
             navbar.classList.add('bg-transparent');
         }
     });

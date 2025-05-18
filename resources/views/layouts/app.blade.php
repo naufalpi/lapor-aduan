@@ -5,11 +5,14 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">
     <x-navbar />
-   
 
-    <main class="container mx-auto p-4">
+    @if (Request::is('/'))
+        <x-hero />
+    @endif
+   
+    <main class="container min-h-screen mx-auto py-20">
         @yield('content')
     </main>
 
