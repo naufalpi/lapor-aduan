@@ -15,6 +15,7 @@
         @endforeach
     </div>
 
+    
     <div class="mt-4">
         {{ $aduans->links() }}
     </div>

@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>@yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @livewireStyles
+
 </head>
 <body class="bg-white">
     <x-navbar />
@@ -17,5 +21,7 @@
     </main>
 
     <x-footer />
+    @livewireScripts
+
 </body>
 </html>

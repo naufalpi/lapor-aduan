@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('nomor_wa');
             $table->string('nomor_tiket')->unique();
-            $table->string('kategori')->nullable();
-            $table->string('lokasi')->nullable();    
-            $table->string('lampiran')->nullable();  
-            $table->string('status')->default('Menunggu');
-            $table->text('tanggapan')->nullable();
+            $table->string('kategori');
+            $table->string('lokasi');    
+            $table->text('lampiran')->nullable();
+            $table->enum('status', ['Menunggu', 'Diproses', 'Selesai'])->default('Menunggu');
+            $table->foreignId('opd_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

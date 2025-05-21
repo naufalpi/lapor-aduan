@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $aduans = Aduan::latest()->paginate(9);
+       
+         $aduans = Aduan::latest()->paginate(9);
         return view('pages.home.index', compact('aduans'));
     }
 }

@@ -24,12 +24,13 @@
         <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
              Selamat Datang di Lapor Mbae Guse
         </h1>
-        <p class="mt-6 text-lg text-gray-200 sm:text-xl">
+        <p class="mt-6 text-xl font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
              PORTAL RESMI ADUAN PEMERINTAH KABUPATEN BANJARNEGARA.
         </p>
-        <a href="#" class="mt-6 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+        <a href="{{ route('aduans.create') }}" class="mt-6 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
             Lapor Aduan
         </a>
+        
     </div>
     {{-- Wave SVG di bawah --}}
 

@@ -18,10 +18,27 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+use Filament\Facades\Filament;
+use Illuminate\Support\Facades\Blade;
+
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        Filament::serving(function () {
+            if (\Illuminate\Support\Facades\Auth::check()) {
+                $user = \Illuminate\Support\Facades\Auth::user();
+
+                view()->share('userRole', $user->role);
+
+                Filament::registerNavigationGroups([
+                    'Manajemen Aduan',
+                    'Manajemen Pengguna',
+                    'Statistik dan Laporan',
+                ]);
+            }
+        });
+
         return $panel
             ->default()
             ->id('admin')
@@ -54,5 +71,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
+       
     }
 }

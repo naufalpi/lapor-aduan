@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'opd_id'
     ];
 
     /**
@@ -45,4 +47,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function opd()
+    {
+        return $this->belongsTo(Opd::class);
+    }
+
 }

@@ -9,7 +9,7 @@
         <!-- Logo -->
         <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="{{ asset('images/banjarnegara.png') }}" class="h-8" alt="Logo">
-            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Lapor Mba'e Gus'e</span>
+            <span class="self-center text-lg font-semibold whitespace-nowrap text-white">Lapor Mba'e Gus'e</span>
         </a>
 
         <!-- Hamburger Button -->
@@ -23,7 +23,7 @@
 
         <!-- Menu Items -->
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-            <ul class="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 font-medium border border-gray-700 md:border-0 rounded-lg bg-gray-800 md:bg-transparent">
+            <ul class="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 font-medium border border-gray-700 md:border-0 rounded-lg bg-gray-800 md:bg-transparent text-sm">
                 <li>
                     <a href="{{ route('home') }}" 
                         class="block py-2 px-3 rounded-sm md:p-0
