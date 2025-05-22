@@ -37,61 +37,75 @@
 
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
-                <label for="nama" class="block mb-2 text-xs font-medium text-gray-900">Nama Lengkap</label>
-                <input type="text" id="nama" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Masukkan nama Anda" required>
+                <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Masukkan nama Anda" required>
             </div>
             <div>
-                <label for="nomor_wa" class="block mb-2 text-xs font-medium text-gray-900">Nomor HP / WA</label>
-                <input type="tel" id="nomor_wa" name="nomor_wa" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="08xxxxxxxxxx" required  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                <label for="nomor_wa" class="block mb-2 text-sm font-medium text-gray-900">Nomor HP / WA</label>
+                <input type="tel" id="nomor_wa" name="nomor_wa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="08xxxxxxxxxx" required  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                 value="{{ old('nomor_wa') }}">
                 @error('nomor_wa')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
             <div>
-                <label for="email" class="block mb-2 text-xs font-medium text-gray-900">Email (Opsional)</label>
-                <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Masukkan email Anda">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email (Opsional)</label>
+                <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Masukkan email Anda">
             </div>
             <div>
-                <label for="lokasi" class="block mb-2 text-xs font-medium text-gray-900">Lokasi Kejadian</label>
-                <input type="text" id="lokasi" name="lokasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Alamat lengkap kejadian" required>
+                <label for="lokasi" class="block mb-2 text-sm font-medium text-gray-900">Lokasi Kejadian</label>
+                <input type="text" id="lokasi" name="lokasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Alamat lengkap kejadian" required>
             </div>
         </div>
 
         <div class="mb-6">
-            <label for="judul" class="block mb-2 text-xs font-medium text-gray-900">Judul Aduan</label>
-            <input type="text" id="judul" name="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Contoh: Lampu Jalan Mati" required>
+            <label for="judul" class="block mb-2 text-sm font-medium text-gray-900">Judul Aduan</label>
+            <input type="text" id="judul" name="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Contoh: Lampu Jalan Mati" required>
         </div>
 
         <div class="mb-6">
-            <label for="isi" class="block mb-2 text-xs font-medium text-gray-900">Isi Aduan</label>
-            <textarea id="isi" name="isi" rows="5" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tuliskan kronologi aduan secara detail..." required></textarea>
+            <label for="isi" class="block mb-2 text-sm font-medium text-gray-900">Isi Aduan</label>
+            <textarea id="isi" name="isi" rows="5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tuliskan kronologi aduan secara detail..." required></textarea>
         </div>
 
         <div class="mb-6">
-            <label for="kategori" class="block mb-2 text-xs font-medium text-gray-900">Kategori Aduan</label>
-            <select id="kategori" name="kategori" class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <label for="kategori" class="block mb-2 text-sm font-medium text-gray-900">Kategori Aduan</label>
+            <select id="kategori" name="kategori" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
                 <option value="">-- Pilih Kategori --</option>
-                <option value="infrastruktur">Infrastruktur</option>
-                <option value="kesehatan">Kesehatan</option>
-                <option value="pendidikan">Pendidikan</option>
-                <option value="lingkungan">Lingkungan</option>
-                <option value="lainnya">Lainnya</option>
+                <option value="Infrastruktur">Infrastruktur</option>
+                <option value="Kesehatan">Kesehatan</option>
+                <option value="Pendidikan">Pendidikan</option>
+                <option value="Lingkungan">Lingkungan</option>
+                <option value="Pelayanan publik">Pelayanan Publik</option>
+                <option value="Keamanan">Keamanan dan Ketertiban</option>
+                <option value="Sosial">Sosial dan Kesejahteraan</option>
+                <option value="Bencana">Bencana Alam</option>
+                <option value="Transportasi">Transportasi dan Lalu Lintas</option>
+                <option value="Air dan sanitasi">Air dan Sanitasi</option>
+                <option value="Penerangan jalan">Penerangan Jalan</option>
+                <option value="Perizinan">Perizinan dan Administrasi</option>
+                <option value="Ekonomi">Ekonomi dan UMKM</option>
+                <option value="Pariwisata">Pariwisata dan Kebudayaan</option>
+                <option value="Pertanian">Pertanian dan Perkebunan</option>
+                <option value="Ketenagakerjaan">Ketenagakerjaan</option>
+                <option value="Perdagangan">Perdagangan</option>
+                <option value="Lainnya">Lainnya</option>
             </select>
+
         </div>
 
         <div class="mb-6">
-            <label class="block mb-2 text-xs font-medium text-gray-900">Lampiran (Opsional, max 3 file) - <strong>jpg, png, pdf</strong></label>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Lampiran (Opsional, max 3 file) - <strong>jpg, png, pdf</strong></label>
 
             <div id="lampiran-wrapper" class="space-y-2">
                 <!-- Input awal -->
                 <div class="relative file-input-wrapper">
-                    <input type="file" name="lampiran[]" class="block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" />
+                    <input type="file" name="lampiran[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none p-2" />
                 </div>
             </div>
 
             <!-- Tombol tambah file -->
-            <button type="button" id="tambah-lampiran" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 font-medium rounded-sm text-xs px-2 py-1 me-2 mb-2 mt-2 dark:bg-green-600 dark:hover:bg-green-700 ">
+            <button type="button" id="tambah-lampiran" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 font-medium rounded-sm text-sm px-2 py-1 me-2 mb-2 mt-2 dark:bg-green-600 dark:hover:bg-green-700 ">
                 + Tambah File
             </button>
         </div>
@@ -100,7 +114,7 @@
 
 
 
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs w-full sm:w-auto px-6 py-2.5 text-center">
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-2.5 text-center">
             Kirim Aduan
         </button>
     </form>
@@ -149,7 +163,7 @@
             const input = document.createElement('input');
             input.type = 'file';
             input.name = 'lampiran[]';
-            input.className = 'block w-full text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none';
+            input.className = 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none p-2';
 
             div.appendChild(input);
             return div;

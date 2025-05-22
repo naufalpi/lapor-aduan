@@ -9,10 +9,12 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\FileUpload;
+use Illuminate\Support\Facades\Storage;
+
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Placeholder;
+
+use Filament\Support\Enums\FontWeight;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\AduanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -26,21 +28,63 @@ class AduanResource extends Resource
     protected static ?string $model = Aduan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Kelola Aduan';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 // Data readonly/non-editable
-            TextInput::make('nomor_tiket')->label('No. Tiket')->disabled(),
-            TextInput::make('judul')->disabled(),
-            Textarea::make('isi')->disabled(),
-            TextInput::make('nama')->label('Nama Pelapor')->disabled(),
-            TextInput::make('email')->disabled(),
-            TextInput::make('nomor_wa')->label('No. WhatsApp')->disabled(),
-            TextInput::make('kategori')->disabled(),
-            TextInput::make('lokasi')->disabled(),
-            FileUpload::make('lampiran')->disabled(),
+            Placeholder::make('created_at')
+                ->label('Dibuat Pada')
+                ->content(fn ($record) => $record->created_at
+                    ? $record->created_at->timezone('Asia/Jakarta')->format('d M Y H:i')
+                    : '-')
+                ->extraAttributes(['class' => 'font-bold text-gray-800']),
+
+            Placeholder::make('updated_at')
+                ->label('Diperbarui Pada')
+                ->content(fn ($record) => $record->updated_at
+                    ? $record->updated_at->timezone('Asia/Jakarta')->format('d M Y H:i')
+                    : '-')
+                ->extraAttributes(['class' => 'font-bold text-gray-800']),
+
+            Placeholder::make('nomor_tiket')
+                ->label('No. Tiket')
+                ->content(fn ($record) => $record->nomor_tiket),
+            Placeholder::make('judul')
+                ->label('Judul')
+                ->content(fn ($record) => $record->judul),
+
+            Placeholder::make('isi')
+                ->label('Isi Laporan')
+                ->content(fn ($record) => $record->isi),
+
+            Placeholder::make('nama')
+                ->label('Nama Pelapor')
+                ->content(fn ($record) => $record->nama),
+            
+            Placeholder::make('email')
+                ->label('Email')
+                ->content(fn ($record) => $record->email),
+            Placeholder::make('nomor_wa')
+                ->label('No. WhatsApp')
+                ->content(fn ($record) => $record->nomor_wa),
+            Placeholder::make('kategori')
+                ->label('Kategori')
+                ->content(fn ($record) => $record->kategori),
+            Placeholder::make('lokasi')
+                ->label('Lokasi')
+                ->content(fn ($record) => $record->lokasi),
+ 
+
+            Placeholder::make('lampiran')
+                ->label('Lampiran')
+                ->content(fn ($record) => $record->lampiran
+                    ? view('components.lampiran-link', ['url' => Storage::url($record->lampiran)])
+                    : 'Tidak ada lampiran'),
+
+            
 
             // Yang bisa diedit: status, tanggapan, opd
             Select::make('status')
@@ -128,4 +172,21 @@ class AduanResource extends Resource
 
         return $query->orderBy('created_at', 'desc');
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        // Hitung aduan dengan status 'Menunggu'
+        $count = Aduan::where('status', 'Menunggu')->count();
+
+        // Jika tidak ada aduan baru, tidak perlu tampilkan badge
+        return $count > 0 ? (string) $count : null;
+    }
+
+    public static function getNavigationBadgeColor(): string | array | null
+    {
+        return 'danger'; // Warna merah
+    }
+
+
+
 }

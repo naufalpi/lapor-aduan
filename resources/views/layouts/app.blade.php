@@ -16,7 +16,7 @@
         <x-hero />
     @endif
    
-    <main class="container min-h-screen mx-auto py-20">
+    <main class="container min-h-screen px-4 mx-auto py-20">
         @yield('content')
     </main>
 

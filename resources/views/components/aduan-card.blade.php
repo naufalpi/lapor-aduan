@@ -1,4 +1,4 @@
-<div class="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition hover:bg-gray-100">
+<div class="bg-white dark:bg-dark-900 border rounded-lg p-4 shadow-sm hover:shadow-md transition hover:bg-gray-100">
     <div class="p-3">
         <h2 class="text-lg font-semibold text-gray-800 mb-2">{{ $aduan->judul }}</h2>
         <p class="text-xs text-gray-600 mb-4">{{ \Illuminate\Support\Str::limit($aduan->isi, 50) }}</p>
